@@ -23,7 +23,7 @@ public class PasswordSet {
     private String description;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "userId", insertable = false, updatable = false)
+    @JoinColumn(name = "userId")
     private User user;
 
     //Properties
