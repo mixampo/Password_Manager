@@ -11,13 +11,18 @@ public class PasswordSetRepository implements IPasswordSetRepo, IPasswordSetCont
     @Autowired
     private IPasswordSetJpaRepository repo;
 
-    public List<PasswordSet> getPasswordSets(){return repo.findAll();}
+    @Override
+    public List<PasswordSet> getPasswordSets(int id){return repo.findAll();}
 
+    @Override
     public void addPasswordSet(PasswordSet passwordSet){repo.save(passwordSet);}
 
+    @Override
     public void updatePasswordSet(PasswordSet passwordSet){repo.save(passwordSet);}
 
+    @Override
     public PasswordSet getPasswordSetById(int id){return repo.getOne(id);}
 
+    @Override
     public void deletePasswordSet(PasswordSet passwordSet){repo.delete(passwordSet);}
 }

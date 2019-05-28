@@ -2,12 +2,10 @@ package rest.controllers;
 
 import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rest.service.ILoginContainerService;
 
 @RestController
@@ -16,12 +14,13 @@ public class LoginController {
     @Autowired
     private ILoginContainerService loginContainerService;
 
-    @GetMapping(value = "/login/{id}")
-    public ResponseEntity<Void> loginAndAuthenticate(@PathVariable("id") int id, @RequestBody User user){
+    @PostMapping(value = "/login/", headers = "Accept=application/json")
+    public ResponseEntity<String> loginAndAuthenticate(@RequestBody User user){
+        HttpHeaders headers = new HttpHeaders();
         if (loginContainerService.loginAndAuthenticate(user)){
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(headers, HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(headers, HttpStatus.BAD_REQUEST);
     }
 
 }

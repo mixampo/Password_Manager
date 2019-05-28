@@ -21,8 +21,8 @@ public class PasswordSetController {
     @Autowired
     private IPasswordSetContainerService passwordSetContainerService;
 
-    @GetMapping(value = "/passwordsets/")
-    public List<PasswordSet> getPasswordSets(){return passwordSetContainerService.getPasswordSets();}
+    @GetMapping(value = "/passwordsets/{id}")
+    public List<PasswordSet> getPasswordSets(@PathVariable("id") int id){return passwordSetContainerService.getPasswordSets(id);}
 
     @PostMapping(value = "/passwordsets/",
             headers = "Accept=application/json")

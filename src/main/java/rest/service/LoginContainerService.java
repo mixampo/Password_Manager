@@ -11,7 +11,8 @@ public class LoginContainerService implements ILoginContainerService {
     @Autowired
     private ILoginContainerRepo repo;
 
-    public boolean loginAndAuthenticate(User user){
+    @Override
+    public Boolean loginAndAuthenticate(User user){
         if (user.getUserName().equals(repo.loginAndAuthenticate(user).getUserName())){
             if (user.getPassword().equals(repo.loginAndAuthenticate(user).getPassword())){
                 return true;
