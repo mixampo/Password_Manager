@@ -15,8 +15,8 @@ public class User {
     @Column(name = "userName", nullable = false)
     private String userName;
 
-    @Column(name = "loginKey", nullable = false)
-    private int loginKey;
+    @Column(name = "password", nullable = false)
+    private String password;
 
     //@OneToMany(mappedBy = "passwordSet", cascade = CascadeType.ALL)
     //private Set<PasswordSet> passwordSets;
@@ -41,12 +41,12 @@ public class User {
         this.userName = userName;
     }
 
-    public int getLoginKey() {
-        return loginKey;
+    public String getPassword() {
+        return password;
     }
 
-    public void setLoginKey(int loginKey) {
-        this.loginKey = loginKey;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     //public ArrayList<PasswordSet> getPasswords() {
@@ -61,17 +61,17 @@ public class User {
     //Constructors
     public User(){}
 
-    public User(int id, String userName, int loginKey){
+    public User(int id, String userName, String password){
         this.id = id;
         this.userName = userName;
-        this.loginKey = loginKey;
+        this.password = password;
         //this.passwords = new ArrayList<PasswordSet>();
         //this.passwords = passwords;
     }
 
-    public User(String userName, int loginKey){
+    public User(String userName, String password){
         this.userName = userName;
-        this.loginKey = loginKey;
+        this.password = password;
         //this.passwords = new ArrayList<PasswordSet>();
         //this.passwords = passwords;
     }

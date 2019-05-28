@@ -10,5 +10,5 @@ public class LoginRepository implements ILoginContainerRepo {
     @Autowired
     private ILoginJpaRepository repo;
 
-    public User loginAndAuthenticate(User user){return repo.findUserByUserNameAndLoginKey(user.getUserName(), user.getLoginKey());}
+    public User loginAndAuthenticate(User user){return repo.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());}
 }
