@@ -22,7 +22,7 @@ public class PasswordGenerator implements IPasswordGenerator {
     public String generatePasswordByUserSpecification(int generateId){
         String possibleUpperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String possibleLowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz";
-        String possibleSpecialCharacters = "9~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
+        String possibleSpecialCharacters = "~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
         String possibleDigits = "0123456789";
         String userSpecifiedCombination = "";
         int firstDigit = Integer.parseInt(Integer.toString(generateId).substring(0, 1));
@@ -44,24 +44,24 @@ public class PasswordGenerator implements IPasswordGenerator {
         }
 
         if (secondDigit == 2){
-            userSpecifiedCombination += possibleUpperCaseCharacters;
+            userSpecifiedCombination += possibleLowerCaseCharacters;
         }
         else if (secondDigit == 3){
             userSpecifiedCombination += possibleSpecialCharacters;
         }
         else if (secondDigit == 4){
-            userSpecifiedCombination += possibleSpecialCharacters;
+            userSpecifiedCombination += possibleDigits;
         }
 
         if (thirdDigit == 3){
             userSpecifiedCombination += possibleSpecialCharacters;
         }
         else if (thirdDigit == 4){
-            userSpecifiedCombination += possibleSpecialCharacters;
+            userSpecifiedCombination += possibleDigits;
         }
 
         if (fourthDigit == 4){
-            userSpecifiedCombination += possibleSpecialCharacters;
+            userSpecifiedCombination += possibleDigits;
         }
         String password = RandomStringUtils.random(15, userSpecifiedCombination);
         return password;
