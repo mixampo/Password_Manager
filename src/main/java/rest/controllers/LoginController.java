@@ -14,7 +14,7 @@ public class LoginController {
     @Autowired
     private ILoginContainerService loginContainerService;
 
-    @PostMapping(value = "/login/", headers = "Accept=application/json")
+    @PostMapping(value = "/login", headers = "Accept=application/json")
     public ResponseEntity<String> loginAndAuthenticate(@RequestBody User user){
         HttpHeaders headers = new HttpHeaders();
         if (loginContainerService.loginAndAuthenticate(user)){

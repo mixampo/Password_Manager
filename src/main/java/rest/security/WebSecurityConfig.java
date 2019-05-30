@@ -1,3 +1,4 @@
+/*
 package rest.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,10 @@ import org.springframework.security.config.annotation.method.configuration.Globa
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled=true, prePostEnabled=true)
 public class WebSecurityConfig extends GlobalMethodSecurityConfiguration {
 
 }
-
+*/
