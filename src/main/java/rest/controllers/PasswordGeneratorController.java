@@ -16,9 +16,9 @@ import java.security.NoSuchAlgorithmException;
 public class PasswordGeneratorController {
     private IPasswordGenerator passwordGenerator = new PasswordGenerator();
 
-    @GetMapping(value = "/generatepassword")
-    public ResponseEntity<String> getGeneratedHexKey() throws NoSuchAlgorithmException {return new ResponseEntity<>(passwordGenerator.generateHexKey(), HttpStatus.OK);}
+    @GetMapping(value = "/generatepassword/{bitSize}")
+    public ResponseEntity<String> getGeneratedHexKey(@PathVariable("bitSize") int bitSize) throws NoSuchAlgorithmException {return new ResponseEntity<>(passwordGenerator.generateHexKey(bitSize), HttpStatus.OK);}
 
-    @GetMapping(value = "/generatepassword/{id}")
+    @GetMapping(value = "/generatepassword/{id}/{otherId}")
     public ResponseEntity<String> getUserSpecifiedGeneratedPassword(@PathVariable("id") int id){ return new ResponseEntity<>(passwordGenerator.generatePasswordByUserSpecification(id), HttpStatus.OK);}
 }

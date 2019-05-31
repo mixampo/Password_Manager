@@ -11,9 +11,9 @@ import java.util.Base64;
 
 public class PasswordGenerator implements IPasswordGenerator {
 
-    public String generateHexKey() throws NoSuchAlgorithmException{
+    public String generateHexKey(int bitSize) throws NoSuchAlgorithmException{
             KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-            keyGen.init(256);
+            keyGen.init(bitSize);
             SecretKey secretKey = keyGen.generateKey();
             String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
             return encodedKey;
