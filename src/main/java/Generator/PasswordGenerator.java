@@ -15,8 +15,8 @@ public class PasswordGenerator implements IPasswordGenerator {
             KeyGenerator keyGen = KeyGenerator.getInstance("AES");
             keyGen.init(bitSize);
             SecretKey secretKey = keyGen.generateKey();
-            String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
-            return encodedKey;
+            //String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
+            return Base64.getEncoder().encodeToString(secretKey.getEncoded());
     }
 
     public String generatePasswordByUserSpecification(int generateId){
