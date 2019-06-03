@@ -81,17 +81,11 @@
                 <artifactId>maven-plugin-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>default-descriptor</id>
-                        <phase>process-classes</phase>
+                        <id>jacoco-initialize</id>
+                        <goals><goal>prepare-agent</goal></goals>
                     </execution>
                     <execution>
-                        <id>help-goal</id>
-                        <goals>
-                            <goal>helpmojo</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
+                        <id>jacoco-site</id>
                         <phase>package</phase>
                         <goals>
                             <goal>report</goal>
