@@ -1,5 +1,6 @@
 package generator;
 
+import Generator.IPasswordGenerator;
 import Generator.PasswordGenerator;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class PasswordGeneratorTest {
 
-    private PasswordGenerator passwordGenerator;
+    private IPasswordGenerator passwordGenerator;
 
     @Before
     public void  TestInitialize(){this.passwordGenerator = new PasswordGenerator();}
