@@ -46,4 +46,39 @@ public class PasswordGeneratorTest {
         String key = passwordGenerator.generateHexKey(800);
     }
 
+    @Test
+    public void TestGeneratePasswordWithSpecifiedLength(){
+        String password = passwordGenerator.generatePasswordByUserSpecification(true, true, true, true, 10);
+
+        assertEquals("The length of the password is not as long as expected", 10, password.length());
+    }
+
+    @Test
+    public void TestGeneratePasswordWithAllPossibleCharacters(){
+        String password = passwordGenerator.generatePasswordByUserSpecification(true, true, true, true, 8);
+
+        char ch;
+        boolean upperCaseFlag = false;
+        boolean lowerCaseFlag = false;
+        boolean digitFlag = false;
+        boolean specialFlag = false;
+        for(int i=0;i < password.length();i++) {
+            ch = password.charAt(i);
+            if( Character.isDigit(ch)) {
+                digitFlag = true;
+            }
+            else if (Character.isUpperCase(ch)) {
+                upperCaseFlag = true;
+            } else if (Character.isLowerCase(ch)) {
+                lowerCaseFlag = true;
+            } else {
+                specialFlag = true;
+            }
+        }
+        assertTrue(upperCaseFlag);
+        assertTrue(lowerCaseFlag);
+        assertTrue(specialFlag);
+        assertTrue(digitFlag);
+    }
+
 }
