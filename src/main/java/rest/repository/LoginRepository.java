@@ -11,5 +11,5 @@ public class LoginRepository implements ILoginContainerRepo {
     private ILoginJpaRepository repo;
 
     @Override
-    public User loginAndAuthenticate(User user){return repo.findUserByUserNameAndPassword(user.getUserName(), user.getPassword());}
+    public User loginAndAuthenticate(User user){return repo.findUserByUsernameAndPassword(user.getUsername(), user.getPassword());}
 }

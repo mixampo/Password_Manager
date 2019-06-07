@@ -13,7 +13,7 @@ public class LoginContainerService implements ILoginContainerService {
 
     @Override
     public Boolean loginAndAuthenticate(User user){
-        if (user.getUserName().equals(repo.loginAndAuthenticate(user).getUserName())){
+        if (user.getUsername().equals(repo.loginAndAuthenticate(user).getUsername())){
             if (user.getPassword().equals(repo.loginAndAuthenticate(user).getPassword())){
                 return true;
             }
