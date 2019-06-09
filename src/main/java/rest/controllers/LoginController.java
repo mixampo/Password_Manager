@@ -1,3 +1,5 @@
+/*
+
 package rest.controllers;
 
 import models.User;
@@ -26,3 +28,5 @@ public class LoginController {
     }
 
 }
+
+*/

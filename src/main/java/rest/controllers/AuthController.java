@@ -1,6 +1,8 @@
 package rest.controllers;
 
+import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -11,11 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import rest.repository.IUserContainerRepo;
 
-import rest.security.AuthenticationRequest;
 import rest.security.JwtTokenProvider;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.springframework.http.ResponseEntity.ok;
 
@@ -31,17 +29,15 @@ public class AuthController {
     IUserContainerRepo userContainerRepo;
 
     @PostMapping(value = "/auth", headers = "Accept=application/json")
-    public ResponseEntity authorize(@RequestBody AuthenticationRequest data) {
+    public ResponseEntity<String> authorize(@RequestBody User user) {
 
         try {
-            String username = data.getUsername();
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, data.getPassword()));
-            String token = jwtTokenProvider.createToken(username);
+            String username = user.getUsername();
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, user.getPassword()));
+            int uId = userContainerRepo.getUserByUsername(username).getId();
+            String token = jwtTokenProvider.createToken(username) + "-Uid-" + uId;
 
-            Map<Object, Object> model = new HashMap<>();
-            model.put("username", username);
-            model.put("token", token);
-            return ok(model);
+            return new ResponseEntity<>(token, HttpStatus.OK);
         } catch (AuthenticationException e) {
             throw new BadCredentialsException("Invalid username/password supplied");
         }

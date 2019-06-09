@@ -1,3 +1,5 @@
+/*
+
 package rest.service;
 
 import models.User;
@@ -5,3 +7,5 @@ import models.User;
 public interface ILoginContainerService {
     Boolean loginAndAuthenticate(User user);
 }
+
+*/

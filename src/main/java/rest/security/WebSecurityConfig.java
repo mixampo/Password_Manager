@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 @Configuration
@@ -41,9 +40,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/auth").permitAll()
-                //.antMatchers(HttpMethod.DELETE, "/passwordsets/**").permitAll()
+                //.antMatchers(HttpMethod.DELETE, "/passwordsets/**").authenticated()
                 //.antMatchers(HttpMethod.GET, "/passwordsets/**").permitAll()
-                //.antMatchers(HttpMethod.POST, "/passwordsets/**").permitAll()
+                //.antMatchers(HttpMethod.POST, "/passwordsets/**").authenticated()
                 .anyRequest().authenticated()
                 .and()
                 .apply(new JwtConfigurer(jwtTokenProvider));

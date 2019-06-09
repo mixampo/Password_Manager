@@ -1,3 +1,5 @@
+/*
+
 package rest.service;
 
 import models.User;
@@ -21,3 +23,5 @@ public class LoginContainerService implements ILoginContainerService {
         return false;
     }
 }
+
+*/

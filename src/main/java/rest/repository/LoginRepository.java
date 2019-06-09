@@ -1,3 +1,4 @@
+/*
 package rest.repository;
 
 import models.User;
@@ -13,3 +14,5 @@ public class LoginRepository implements ILoginContainerRepo {
     @Override
     public User loginAndAuthenticate(User user){return repo.findUserByUsernameAndPassword(user.getUsername(), user.getPassword());}
 }
+
+*/
