@@ -1,8 +1,5 @@
 package generator;
 
-import Generator.IPasswordGenerator;
-import Generator.PasswordGenerator;
-import org.junit.Assert;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
@@ -11,7 +8,6 @@ import org.junit.Test;
 
 import java.security.InvalidParameterException;
 import java.security.NoSuchAlgorithmException;
-import java.util.regex.Pattern;
 
 public class PasswordGeneratorTest {
 

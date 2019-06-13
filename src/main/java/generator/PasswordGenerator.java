@@ -1,7 +1,6 @@
-package Generator;
+package generator;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import rest.service.IPasswordSetService;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;

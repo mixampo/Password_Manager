@@ -4,16 +4,19 @@ import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class UserRepository implements IUserRepo, IUserContainerRepo{
 
-    //verder
     @Autowired
     private IUserJpaRepository repo;
 
     @Override
-    public User getUserByUsername(String username) {
-        return repo.findUserByUsername(username);
+    public void addUser(User user){ repo.save(user);}
+
+    @Override
+    public User getUserByUsername(String username){ return repo.findUserByUsername(username);
     }
 
     @Override

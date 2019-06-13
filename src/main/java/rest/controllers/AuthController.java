@@ -33,13 +33,16 @@ public class AuthController {
 
         try {
             String username = user.getUsername();
+
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, user.getPassword()));
+
             int uId = userContainerRepo.getUserByUsername(username).getId();
             String token = jwtTokenProvider.createToken(username) + "-Uid-" + uId;
 
             return new ResponseEntity<>(token, HttpStatus.OK);
         } catch (AuthenticationException e) {
-            throw new BadCredentialsException("Invalid username/password supplied");
+            return new ResponseEntity<>("Invalid username/password supplied", HttpStatus.BAD_REQUEST);
+            //throw new BadCredentialsException("Invalid username/password supplied");
         }
     }
 }

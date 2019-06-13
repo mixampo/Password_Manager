@@ -1,9 +1,7 @@
 package rest.controllers;
 
-import Generator.IPasswordGenerator;
-import Generator.PasswordGenerator;
-import models.PasswordSet;
-import org.springframework.beans.factory.annotation.Autowired;
+import generator.IPasswordGenerator;
+import generator.PasswordGenerator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
