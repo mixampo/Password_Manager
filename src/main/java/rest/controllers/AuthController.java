@@ -42,7 +42,6 @@ public class AuthController {
             return new ResponseEntity<>(token, HttpStatus.OK);
         } catch (AuthenticationException e) {
             return new ResponseEntity<>("Invalid username/password supplied", HttpStatus.BAD_REQUEST);
-            //throw new BadCredentialsException("Invalid username/password supplied");
         }
     }
 }
